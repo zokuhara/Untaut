@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+
+
+  root 'home#dashboard'
+
+  get 'home/room'
+
+  get 'users/new' => 'users#new', as: :sign_up
+  post '/users' => 'users#create', as: :users
+
+  get 'log_in' => 'sessions#new', as: :log_in
+  post 'log_in' => 'sessions#create'
+  delete 'log_in' => 'sessions#delete', as: :log_out
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
